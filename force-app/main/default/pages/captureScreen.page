@@ -1,11 +1,13 @@
 <!--
- - captureScreen
- - @date 06/03/2024
- - @createdBy wrnunzio
+ - Visualforce page for capturing and managing screenshots
+ -
+ - This page provides functionality to capture screenshots, save them, and manage them within Salesforce.
+ - It includes features such as capturing screenshots, displaying them, renaming, downloading, and deleting.
+ -
+ - @param id - The page expect a Case id as url parameter
  -->
-
 <apex:page id="captureScreen" controller="captureScreenController">
-    <apex:slds />
+    <apex:slds/>
     <script type="text/javascript">
         console.log('captureScreen.page loaded')
         const chooseWhenToScreenshot = true;
@@ -163,7 +165,7 @@
         }
 
         function keepFile() {
-            if(lastInsertedImg.title == document.querySelectorAll('#text-input-id-2')[0].value+'.png' || document.querySelectorAll('#text-input-id-2')[0].value==''){
+            if (lastInsertedImg.title == document.querySelectorAll('#text-input-id-2')[0].value + '.png' || document.querySelectorAll('#text-input-id-2')[0].value == '') {
                 document.querySelectorAll('#imgCard')[0].classList.add("slds-hide");
                 document.querySelectorAll('#startPage')[0].classList.remove("slds-hide");
                 sforce.one.showToast({
@@ -176,7 +178,7 @@
             document.querySelectorAll('#spinner')[0].classList.remove("slds-hide")
             Visualforce.remoting.Manager.invokeAction(
                 '{!$RemoteAction.captureScreenController.updateContentVersion}',
-                document.querySelectorAll('#imgid')[0].dataset.cvid,document.querySelectorAll('#text-input-id-2')[0].value,
+                document.querySelectorAll('#imgid')[0].dataset.cvid, document.querySelectorAll('#text-input-id-2')[0].value,
                 (result, event) => {
                     if (event.status) {
                         console.log('success', result)
@@ -238,7 +240,7 @@
             );
         }
     </script>
-    <html lang="it" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
 
     <div id="spinner" class="slds-align_absolute-center slds-hide" style="height:35rem">
         <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_inline">
@@ -445,33 +447,32 @@
                 </header>
             </div>
             <div class="slds-card__body slds-card__body_inner">
-                <img data-cvid="" id="imgid" src=""/>
+                <img alt="Captured screenshot" data-cvid="" id="imgid" src=""/>
 
                 <div class="slds-form-element slds-m-top_x-small slds-m-bottom_small">
                     <label class="slds-form-element__label" for="text-input-id-2">
                         <!--<abbr class="slds-required" title="required">* </abbr-->Nome del file</label>
                     <div class="slds-form-element__control">
-                        <input type="text" id="text-input-id-2" placeholder="" required="" class="slds-input" />
+                        <input type="text" id="text-input-id-2" placeholder="" required="" class="slds-input"/>
                     </div>
                 </div>
             </div>
             <footer class="slds-card__footer">
-                <button onclick="deleteFile();" class="slds-button slds-button_destructive slds-m-around_xx-small" aria-label="Cancella">
+                <button onclick="deleteFile();" class="slds-button slds-button_destructive slds-m-around_xx-small"
+                        aria-label="Cancella">
                     Elimina
                 </button>
                 <button onclick="keepFile();" class="slds-button slds-button_neutral slds-m-around_xx-small"
                         aria-label="Chiudi e conserva file">Conserva
                 </button>
-                <button onclick="downloadImg();" class="slds-button slds-button_brand slds-m-around_xx-small">Salva in locale</button>
-                <!-- <a class="slds-card__footer-action" href="#">View All
-                     <span class="slds-assistive-text">Accounts</span>
-                 </a>-->
+                <button onclick="downloadImg();" class="slds-button slds-button_brand slds-m-around_xx-small">Salva in
+                    locale
+                </button>
             </footer>
         </article>
 
 
     </div>
-    </html>
 
 
 </apex:page>
