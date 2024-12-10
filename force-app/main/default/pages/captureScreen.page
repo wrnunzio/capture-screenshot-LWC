@@ -38,8 +38,8 @@
             if (!recordId?.startsWith('500')) {
                 sforce.one.showToast({
                     "type": "warning",
-                    "title": "Attenzione",
-                    "message": "Il cattura schermata è disponibile solo sulla record page del Case!"
+                    "title": "Attention!",
+                    "message": "The screen capture is only available on the Case record page!"
                 });
                 return;
             }
@@ -170,8 +170,8 @@
                 document.querySelectorAll('#startPage')[0].classList.remove("slds-hide");
                 sforce.one.showToast({
                     "type": "success",
-                    "title": "Successo",
-                    "message": "File conservato con successo!"
+                    "title": "Success!",
+                    "message": "File kept successfully!"
                 });
                 return;
             }
@@ -190,8 +190,8 @@
                         document.querySelectorAll('#spinner')[0].classList.add("slds-hide")
                         sforce.one.showToast({
                             "type": "success",
-                            "title": "Successo",
-                            "message": "File rinonimato e conservato con successo!"
+                            "title": "Success!",
+                            "message": "File renamed and kept con successfully!"
                         });
                     } else if (event.type === 'exception') {
                         console.error(event.message)
@@ -225,8 +225,8 @@
                         document.querySelectorAll('#startPage')[0].classList.remove("slds-hide");
                         sforce.one.showToast({
                             "type": "success",
-                            "title": "Successo",
-                            "message": "File cancellato con successo!"
+                            "title": "Success!",
+                            "message": "File deleted successfully!"
                         });
                     } else if (event.type === 'exception') {
                         console.error(event.message)
@@ -420,10 +420,10 @@
                     </g>
                 </svg>
                 <div class="slds-text-longform">
-                    <h3 class="slds-text-heading_medium">Nessuna immagine catturata!</h3>
-                    <p class="slds-text-body_regular">Premi il bottone "Cattura schermata" per iniziare</p>
+                    <h3 class="slds-text-heading_medium">No image captured!</h3>
+                    <p class="slds-text-body_regular">Press the "Capture screen" button to start</p>
                     <p class="slds-text-body_regular">
-                        <button class="slds-button slds-button_brand" onclick="startCapture();">Cattura schermata
+                        <button class="slds-button slds-button_brand" onclick="startCapture();">Capture screen
                         </button>
                     </p>
                 </div>
@@ -451,7 +451,7 @@
 
                 <div class="slds-form-element slds-m-top_x-small slds-m-bottom_small">
                     <label class="slds-form-element__label" for="text-input-id-2">
-                        <!--<abbr class="slds-required" title="required">* </abbr-->Nome del file</label>
+                        <!--<abbr class="slds-required" title="required">* </abbr-->File name</label>
                     <div class="slds-form-element__control">
                         <input type="text" id="text-input-id-2" placeholder="" required="" class="slds-input"/>
                     </div>
@@ -459,14 +459,13 @@
             </div>
             <footer class="slds-card__footer">
                 <button onclick="deleteFile();" class="slds-button slds-button_destructive slds-m-around_xx-small"
-                        aria-label="Cancella">
-                    Elimina
+                        aria-label="Delete">
+                    Delete
                 </button>
                 <button onclick="keepFile();" class="slds-button slds-button_neutral slds-m-around_xx-small"
-                        aria-label="Chiudi e conserva file">Conserva
+                        aria-label="keep and close">Keep
                 </button>
-                <button onclick="downloadImg();" class="slds-button slds-button_brand slds-m-around_xx-small">Salva in
-                    locale
+                <button onclick="downloadImg();" class="slds-button slds-button_brand slds-m-around_xx-small">Save locally
                 </button>
             </footer>
         </article>

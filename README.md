@@ -20,7 +20,7 @@ This implementation is a prototype and is not production-ready. It serves as a f
 
 ## 🎥 Demonstration
 
-![Functionality Demonstration](/chrome_1mnuarrPF2.gif)
+![Functionality Demonstration](/demostration.gif)
 
 ## 🛠️ JavaScript Functions
 
@@ -49,6 +49,5 @@ The page expects a Case ID as a URL parameter. It is designed to be used on the 
 - The page uses SLDS for consistent styling with Salesforce's Lightning Experience.
 - The screenshot capture functionality is dependent on the browser's support for the `getDisplayMedia` API.
 - The page includes error handling to manage exceptions during the capture and management processes.
-- Some of the UI text and labels are currently in Italian. Future updates may include translations into English for a more consistent experience across different regions.
 
 This page is a powerful tool for users who need to capture and manage screenshots directly within Salesforce, enhancing productivity and record-keeping.
