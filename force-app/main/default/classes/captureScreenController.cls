@@ -7,7 +7,6 @@ global without sharing class captureScreenController {
     
     global String recordId { get; set; }
     global Case currentCase { get; set; }
-    global Case currentCases { get; set; }
     global captureScreenController() {
         this.recordId = ApexPages.currentPage().getParameters().get('id');
         System.debug('##this.recordId## ' + this.recordId);
